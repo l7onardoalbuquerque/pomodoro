@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/svg" href="assets/favicon16x16.svg" sizes="16x16">
+	<link rel="icon" type="image/svg" href="assets/favicon32x32.svg" sizes="32x32">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<title>Pomodoro</title>
+</head>
+<body>
+
+	<div id="app">
+
+        <!-- HEADER -->
+		<header class="flex-space">
+			<div>
+				<h1>Pomodoro</h1>
+				<h2>Gerencie seu tempo de maneira mágica!</h2>
+			</div>
+			<nav>
+				<ul class="flex-center">
+					<li><a class="flex-center"><img src="assets/sundim.svg"></a></li>
+					<li><a class="flex-center"><img src="assets/githublogo.svg"></a></li>
+					<li><a class="flex-center"><img src="assets/translate.svg"></a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<!-- Pomodoro Section -->
+			<section>
+
+				<article class="flex-space">
+					<div>
+						<h3>Dados da sessão</h3>
+						<p>Acompanhe os próximos cíclos</p>
+					</div>
+					<img src="assets/time.svg">
+				</article>
+
+				<hr class="margin-top">
+
+				<article>
+					<div class="flex-space margin-top">
+						<div>
+							<h4>Modo atual:</h4>
+							<h5>Cíclo atual do cronômetro</h5>
+						</div>
+						<img id="current-mode" src="assets/foco.svg">
+					</div>
+					<div class="flex-space margin-top">
+						<div>
+							<h4>Próximo modo:</h4>
+							<h5>Qual cíclo será ativado</h5>
+						</div>
+						<img id="next-mode" src="assets/foco.svg">
+					</div>
+				</article>
+
+
+				<div class="pomodoro-container">
+					<svg width="244" height="244">
+						<circle r="112" cx="122" cy="122"></circle>
+						<circle id="pomodoro-circle" r="112" cx="122" cy="122"></circle>
+						<text id="pomodoro-countdown" x="50%" y="50%" text-anchor="middle" dy="0.35em">00:00</text>
+					</svg>
+					<div class="pomodoro-controls">
+						<button id="open-settings" class="flex-center"><img src="assets/settings.svg"></button>
+						<button id="play-btn" class="flex-center"><img src="assets/play.svg"></button>
+						<button id="reset-btn" class="flex-center"><img src="assets/undo.svg"></button>
+					</div>
+				</div>
+
+				<div id="pomodoro-settings">
+					<div class="pomodoro-settings">
+
+						<div class="flex-space">
+							<h3>Settings</h3>
+							<a id="close-settings"><img src="assets/close.svg"></a>
+						</div>
+						<hr class="margin-top">
+
+						<div class="flex-space margin-top">
+							<div>
+								<h4>Focus time:</h4>
+								<h5>Select the focus time 25 - 50</h5>
+							</div>
+							<div class="pomodoro-input flex-space">
+								<button data-minus="focus" class="flex-center minus"><img src="assets/minus.svg"></button>
+								<p class="time" data-p="focus">25</p>
+								<button data-add="focus" class="flex-center add"><img src="assets/add.svg"></button>
+							</div>
+						</div>
+						<div class="flex-space margin-top">
+							<div>
+								<h4>Short break:</h4>
+								<h5>Select the short break 5 - 10</h5>
+							</div>
+							<div class="pomodoro-input flex-space">
+								<button data-minus="short" class="flex-center minus"><img src="assets/minus.svg"></button>
+								<p class="time" data-p="short">5</p>
+								<button data-add="short" class="flex-center add"><img src="assets/add.svg"></button>
+							</div>
+						</div>
+						<div class="flex-space margin-top">
+							<div>
+								<h4>Long break:</h4>
+								<h5>Select the long break 15 - 30</h5>
+							</div>
+							<div class="pomodoro-input flex-space">
+								<button data-minus="long" class="flex-center minus"><img src="assets/minus.svg"></button>
+								<p class="time" data-p="long">15</p>
+								<button data-add="long" class="flex-center add"><img src="assets/add.svg"></button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</section>
+
+			<!-- Tasks Section -->
+			<section>
+
+				<article class="flex-space">
+					<div>
+						<h3>Lista de tarefas</h3>
+						<p>Seus objetivos para essa sessão</p>
+					</div>
+					<img src="assets/rocket.svg">
+				</article>
+
+				<hr class="margin-top">
+
+
+				<div class="tasks-container margin-top">
+
+					<div id="tasks">
+
+					</div>
+
+					<div class="task-input-container">
+						<input id="newTask" type="text" placeholder="Nova Tarefa">
+						<button onclick="addTask()">Adicionar</button>
+					</div>
+
+				</div>
+
+
+
+			</section>
+		</main>
+
+	</div>
+
+	<script src="scripts/pomodoro.js"></script>
+	<script src="scripts/tasks.js"></script>
+
+</body>
+</html>
